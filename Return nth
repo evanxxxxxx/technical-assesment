@@ -1,0 +1,19 @@
+  const nth_most_rate_signature = (list,n) => {
+    const counts = {};
+  
+    // Count the number of times each item appears in the list
+    for (const num of list) {
+      counts[num] = counts[num] ? counts[num] + 1 : 1;
+    }
+
+    const sorted = Object.entries(counts).sort((a, b) => a[1] - b[1]);
+  
+   
+    const totalItem = sorted?.length
+    const nthRarestElement = n > totalItem ? sorted[totalItem - 1][0] : n <= 0 ? sorted[0][0] : sorted[n - 1][0];
+  
+    return nthRarestElement;
+     // ==> 3
+  }
+  
+  console.log(nth_most_rate_signature([5, 4, 5, 4, 5, 4, 4, 5, 3, 3, 3, 2, 2, 2, 1, 5], 2) +  " as 2 is the 2nd rarest 
